@@ -5,7 +5,6 @@ class ExchangeController < ApplicationController
   end
 
   def convert
-    puts ExchangeRate.rates
     query = params['convert']
     @from, @to, @amount = query[:from], query[:to], query[:amount].to_f
     rate = ExchangeRate.at(Date.parse(query[:date]), @from, @to)
