@@ -5,8 +5,10 @@ require 'yaml'
 
 module ExchangeRate
   RatesUrl = 'http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml'
+  TimeFormat = '%Y-%m-%d'
 
   def self.at date, from, to
+    return nil unless rates[date] && rates[date][to.to_sym] && rates[date][from.to_sym]
     rates[date][to.to_sym] / rates[date][from.to_sym]
   end
 
@@ -21,7 +23,7 @@ module ExchangeRate
 
   def self.update_rates
     File.open("store.yaml", "w") do |file|
-      file.write @@rates = resolve_rates_from_ecb.to_yaml
+      file.write (@@rates = resolve_rates_from_ecb).to_yaml
     end
   end
 

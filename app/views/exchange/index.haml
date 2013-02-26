@@ -1,4 +1,4 @@
-= form_for :currency_query, :html => {:class => 'form-horizontal'} do |f|
+= form_for :convert,  :url => convert_path, :remote => true, :html => {:class => 'form-horizontal'} do |f|
   .control-group
     %label.control-label
       Date
@@ -8,10 +8,19 @@
     %label.control-label
       Amount
     .controls
-      = f.text_field :amount, :type => 'number', :value => 100
+      = f.text_field :amount, :type => 'number', :step => 'any', :value => 100
   .control-group
     %label.control-label
       From
     .controls
-      = f.select :from, @from
+      = f.select :from, @currencies, {}, :class => 'select2'
+  .control-group
+    %label.control-label
+      To
+    .controls
+      = f.select :to, @currencies, {}, :class => 'select2'
+  .control-group
+    .controls
+      = f.submit :convert, :class => 'btn'
+.alert.hide#result
 

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ExchangeRate::Application.load_tasks
+ExchangeRateClient::Application.load_tasks

@@ -4,4 +4,16 @@
 
 $( ->
   $('.date').datepicker({format : 'yyyy-mm-dd'})
-  $('#currency_query_from').select2())
+  $('.select2').select2())
+
+window.render_error = (error) ->
+  $('#result').show()
+  $('#result').removeClass('alert-info')
+  $('#result').addClass('alert-error')
+  $('#result').html(error)
+
+window.render_success = (result) ->
+  $('#result').show()
+  $('#result').addClass('alert-info')
+  $('#result').removeClass('alert-error')
+  $('#result').html(result)

@@ -13,3 +13,4 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "haml-bootstrap-rails"
 gem 'haml'
 gem 'sqlite3'
+gem 'nokogiri'
