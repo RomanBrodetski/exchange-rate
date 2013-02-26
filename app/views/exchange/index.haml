@@ -1,0 +1,17 @@
+= form_for :currency_query, :html => {:class => 'form-horizontal'} do |f|
+  .control-group
+    %label.control-label
+      Date
+    .controls
+      = f.text_field :date, :class => 'date', :value => Date.today
+  .control-group
+    %label.control-label
+      Amount
+    .controls
+      = f.text_field :amount, :type => 'number', :value => 100
+  .control-group
+    %label.control-label
+      From
+    .controls
+      = f.select :from, @from
+
